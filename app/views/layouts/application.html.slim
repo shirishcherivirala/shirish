@@ -46,10 +46,12 @@ html lang="en"
     footer
       .container
         .row
-          .col-md-2
+          .col-md-3
             ul
               li LATEST
-              li ~
+              - cache do
+                - Album.recent(4).each do |album|
+                  = content_tag(:li, album.name)
           .col-md-2
             ul
               li OUR TEAM
