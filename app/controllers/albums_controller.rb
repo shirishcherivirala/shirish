@@ -36,6 +36,11 @@ class AlbumsController < ApplicationController
     respond_with(@album)
   end
 
+  def newest
+    @album = Album.order(:released_on).last
+    render :show
+  end
+
   private
     def set_album
       @album = Album.find(params[:id])
